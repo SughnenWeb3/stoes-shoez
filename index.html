@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STOES</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-sky-100 text-gray-800 font-sans">
+
+    <nav class="bg-white shadow-md fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between items-center h-16">
+            
+            
+            <div class="flex items-center space-x-2">
+              <img src="./img/logo.jpeg" alt="Logo" class="h-10 w-10 rounded-full">
+              <span class="text-sky-600 text-xl font-bold">Stoes Collection</span>
+            </div>
+      
+            
+            <div class="hidden md:flex space-x-6">
+              <a href="#home" class="text-gray-700 hover:text-sky-600">Home</a>
+              <a href="#collection" class="text-gray-700 hover:text-sky-600">Collection</a>
+              <a href="#about" class="text-gray-700 hover:text-sky-600">About</a>
+              <a href="#contact" class="text-gray-700 hover:text-sky-600">Contact</a>
+            </div>
+      
+            
+            <div class="md:hidden">
+              <button id="mobile-menu-button" class="text-gray-700 focus:outline-none">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+  <header class="bg-sky-300 text-white py-12 text-center">
+    <h1 class="text-4xl font-bold">STOES COLLECTION</h1>
+    <p class="text-lg mt-2">Handcrafted Shoes for Every Step</p>
+  </header>
+
+ 
+  <section class="py-10 px-5">
+    <h2 class="text-2xl font-semibold text-center mb-6">Our Collection</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+      <img src="./img/shoe1.jpeg" alt="Shoe 1" class="rounded-lg shadow-md">
+      <img src="./img/shoe2.jpeg" alt="Shoe 2" class="rounded-lg shadow-md">
+      <img src="./img/shoe3.jpeg" alt="Shoe 3" class="rounded-lg shadow-md">
+      <img src="./img/shoe4.jpeg" alt="Shoe 4" class="rounded-lg shadow-md">
+      <img src="./img/shoe5.jpeg" alt="Shoe 6" class="rounded-lg shadow-md">
+      <img src="./img/shoe6.jpeg" alt="Shoe 6" class="rounded-lg shadow-md">
+      <img src="./img/shoe7.jpeg" alt="Shoe 7" class="rounded-lg shadow-md">
+      <img src="./img/shoe8.jpeg" alt="Shoe 8" class="rounded-lg shadow-md">
+    </div>
+  </section>
+
+  
+  <section class="bg-white py-10 px-5">
+    <h2 class="text-2xl font-semibold text-center mb-4">About Us</h2>
+    <p class="max-w-xl mx-auto text-center">
+      Stoes is a labor of love by Stella Iorkula, a passionate shoemaker who blends art and function to create beautiful, handmade footwear for women who love style and comfort.
+    </p>
+  </section>
+
+  
+  <section class="bg-sky-200 py-10 px-5">
+    <h2 class="text-2xl font-semibold text-center mb-4">Get in Touch</h2>
+    <form class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md space-y-4">
+      <input type="text" placeholder="Your Name" class="w-full p-2 border border-gray-300 rounded">
+      <input type="email" placeholder="Your Email" class="w-full p-2 border border-gray-300 rounded">
+      <textarea placeholder="Your Message" class="w-full p-2 border border-gray-300 rounded h-32"></textarea>
+      <button type="submit" class="bg-sky-400 text-white px-4 py-2 rounded hover:bg-sky-500">Send</button>
+    </form>
+  </section>
+
+  
+  <footer class="text-center text-sm text-gray-600 py-4">
+    &copy; 2025 Stoes Collection. All rights reserved.
+  </footer>
+
+</body>
+</html>
