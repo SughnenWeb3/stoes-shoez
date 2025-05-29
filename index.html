@@ -7,217 +7,177 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body class="bg-sky-100 text-gray-800 font-sans scroll-smooth">
-    <nav class=" bg-white px-4 py-4 shadow-md flex justify-between items-center">
     
+ 
+    <nav class="fixed top-0 left-0 w-full z-50 bg-white shadow-md px-4 py-4 flex justify-between items-center">
       <div class="flex items-center space-x-2">
-        <img src="./img/logo.jpeg" alt="Logo" class="h-10 w-10 rounded-full">
+        <img src="./img/logo.jpeg" alt="Stoes Logo" class="h-10 w-10 rounded-full" />
         <h1 class="text-xl font-bold text-sky-600">Stoes Collection</h1>
       </div>
-    
-    
-      <div class="space-x-4 hidden md:flex">
-        <a href="#home" class="text-gray-700 hover:text-sky-600">Home</a>
-        <a href="#collection" class="text-gray-700 hover:text-sky-600">Collection</a>
-        <a href="#about" class="text-gray-700 hover:text-sky-600">About</a>
-        <a href="#contact" class="text-gray-700 hover:text-sky-600">Contact</a>
+
+      <div class="hidden md:flex space-x-4">
+        <a href="#home" class="hover:text-sky-600">Home</a>
+        <a href="#collection" class="hover:text-sky-600">Collection</a>
+        <a href="#about" class="hover:text-sky-600">About</a>
+        <a href="#contact" class="hover:text-sky-600">Contact</a>
       </div>
-    
-    
-      <div class="flex items-center space-x-4">
-      
-        <img src="/img/cart-3.png" alt="Cart" class="h-6 w-6">
-    
-     
-        <div>
-         
-        
-          <div id="signin-form" class="hidden absolute right-4 mt-2 bg-white border p-4 rounded shadow-md space-y-2 w-64">
-            <input type="email" placeholder="Email" class="w-full border p-2 rounded text-sm">
-            <input type="password" placeholder="Password" class="w-full border p-2 rounded text-sm">
-            <button class="bg-sky-500 hover:bg-sky-600 text-white w-full py-2 rounded text-sm">Login</button>
-          </div>
+
+        <div class="relative">
+          <button id="cart-btn">
+            <img src="/img/cart-3.png" alt="Cart" class="h-12 w-12">
+            <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1">0</span>
+          </button>
+        </div>
+
+        <div id="signin-form" class="hidden absolute right-0 mt-10 bg-white border p-4 rounded shadow-md w-64 space-y-2">
+          <input type="email" placeholder="Email" class="w-full border p-2 rounded text-sm" />
+          <input type="password" placeholder="Password" class="w-full border p-2 rounded text-sm" />
+          <button class="w-full py-2 rounded bg-sky-500 hover:bg-sky-600 text-white text-sm">Login</button>
         </div>
       </div>
     </nav>
-    
-
-    <section id="home" class="bg-black text-white mt-16 h-screen flex items-center">
-      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center px-6 gap-8 w-full">
-        
+    <div id="cart-section" class="hidden fixed top-16 right-4 bg-white shadow-lg rounded-lg p-4 w-80 z-40">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="font-bold text-lg">Your Cart</h3>
+        <button id="close-cart" class="text-gray-500 hover:text-gray-700">&times;</button>
+      </div>
+      <div id="cart-items">
       
+      </div>
+      <div class="mt-4 pt-4 border-t">
+        <div class="flex justify-between">
+          <strong>Total: $<span id="cart-total">0</span></strong>
+          <button onclick="clearCart()" class="bg-red-500 text-white px-3 py-1 rounded text-sm">Clear All</button>
+        </div>
+      </div>
+    </div>
+  
+    <section id="home" class="bg-black text-white h-screen flex items-center mt-16">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center px-6 gap-8 w-full">
         <div class="space-y-4 text-center md:text-left">
           <h1 class="text-4xl md:text-5xl font-bold leading-tight">STOES COLLECTION</h1>
-          <p class="text-lg">At Stoes Collection, we don’t just make shoes—we craft confidence. Every pair is a blend of elegance, durability, and soul, handcrafted for people who lead with purpose and walk with pride. Our pieces are more than fashion—they’re a celebration of identity, strength, and self-expression in every step</p>
+          <p class="text-lg">
+            At Stoes Collection, we don’t just make shoes, we craft confidence.
+            Every pair blends elegance, durability, and soul — handcrafted for those who walk with pride.
+          </p>
           <a href="#collection" class="inline-block mt-4 bg-white text-sky-600 px-6 py-2 rounded shadow hover:bg-sky-100 transition">
             Shop Now
           </a>
         </div>
-        
         <div class="flex justify-center md:justify-end">
-          <img src="img/shoe black.png" alt="Hero Shoe" class="w-full max-w-md rounded-lg shadow-lg object-cover">
+          <img src="./img/shoe black.png" alt="Black Shoe Hero" class="w-full max-w-md rounded-lg shadow-lg object-cover" />
         </div>
-    
       </div>
     </section>
-    
-    
 
+  
     <section id="collection" class="py-10 px-5">
       <h2 class="text-2xl font-semibold text-center mb-6">Our Collection</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-        <div class="relative group overflow-hidden rounded-lg shadow-md">
-          <img src="./img/shoe1.jpeg" alt="Shoe 1" class="w-full h-64 object-cover transition duration-300 group-hover:blur-sm">
-          
-          
-          <!-- <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-300">
-            <p class="text-white text-xl font-semibold">Pick Me</p>
-          </div> -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
         
-          
-          <div class="bg-white p-3 text-center">
-            <p class="text-lg font-semibold text-gray-800">₦12,500</p>
+      
+        <div class="group relative overflow-hidden rounded-lg shadow-md bg-white">
+          <img src="./img/close-up-blue-container.png" alt="Blue Shoe" class="w-full h-64 object-cover transition duration-300 group-hover:blur-sm" />
+          <div class="p-3 text-center">
+            <p class="text-lg font-semibold">$9,500</p>
             <button class="mt-2 bg-sky-500 text-white px-4 py-1 rounded hover:bg-sky-600 transition">Add to Cart</button>
           </div>
         </div>
 
-        <div class="relative group overflow-hidden rounded-lg shadow-md">
-          <img src="./img/shoe1.jpeg" alt="Shoe 1" class="w-full h-64 object-cover transition duration-300 group-hover:blur-sm">
-          
-          
-          <!-- <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-300">
-            <p class="text-white text-xl font-semibold">Pick Me</p>
-          </div> -->
-        
-          
-          <div class="bg-white p-3 text-center">
-            <p class="text-lg font-semibold text-gray-800">₦12,500</p>
+        <div class="group relative overflow-hidden rounded-lg shadow-md bg-white">
+          <img src="./img/pair-brown-shoes-with-black-leather.png" alt="Brown Leather Shoes" class="w-full h-64 object-cover transition duration-300 group-hover:blur-sm" />
+          <div class="p-3 text-center">
+            <p class="text-lg font-semibold">$23,500</p>
             <button class="mt-2 bg-sky-500 text-white px-4 py-1 rounded hover:bg-sky-600 transition">Add to Cart</button>
           </div>
         </div>
-        <div class="relative group overflow-hidden rounded-lg shadow-md">
-          <img src="./img/shoe1.jpeg" alt="Shoe 1" class="w-full h-64 object-cover transition duration-300 group-hover:blur-sm">
-          
-          
-          <!-- <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-300">
-            <p class="text-white text-xl font-semibold">Pick Me</p>
-          </div> -->
-        
-          
-          <div class="bg-white p-3 text-center">
-            <p class="text-lg font-semibold text-gray-800">₦12,500</p>
+
+        <div class="group relative overflow-hidden rounded-lg shadow-md bg-white">
+          <img src="./img/shoe black.png" alt="Classic Black Shoe" class="w-full h-64 object-cover transition duration-300 group-hover:blur-sm" />
+          <div class="p-3 text-center">
+            <p class="text-lg font-semibold">$1,500</p>
             <button class="mt-2 bg-sky-500 text-white px-4 py-1 rounded hover:bg-sky-600 transition">Add to Cart</button>
           </div>
         </div>
-        <div class="relative group overflow-hidden rounded-lg shadow-md">
-          <img src="./img/shoe1.jpeg" alt="Shoe 1" class="w-full h-64 object-cover transition duration-300 group-hover:blur-sm">
-          
-          
-          <!-- <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-300">
-            <p class="text-white text-xl font-semibold">Pick Me</p>
-          </div> -->
-        
-          
-          <div class="bg-white p-3 text-center">
-            <p class="text-lg font-semibold text-gray-800">₦12,500</p>
+
+        <div class="group relative overflow-hidden rounded-lg shadow-md bg-white">
+          <img src="./img/shoe1.jpeg" alt="Shoe Model 1" class="w-full h-64 object-cover transition duration-300 group-hover:blur-sm" />
+          <div class="p-3 text-center">
+            <p class="text-lg font-semibold">$2,000</p>
             <button class="mt-2 bg-sky-500 text-white px-4 py-1 rounded hover:bg-sky-600 transition">Add to Cart</button>
           </div>
         </div>
-        <div class="relative group overflow-hidden rounded-lg shadow-md">
-          <img src="./img/shoe1.jpeg" alt="Shoe 1" class="w-full h-64 object-cover transition duration-300 group-hover:blur-sm">
-          
-        
-          <!-- <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-300">
-            <p class="text-white text-xl font-semibold">Pick Me</p>
-          </div> -->
-        
-          
-          <div class="bg-white p-3 text-center">
-            <p class="text-lg font-semibold text-gray-800">₦12,500</p>
+
+        <div class="group relative overflow-hidden rounded-lg shadow-md bg-white">
+          <img src="./img/futuristic-sneakers.png" alt="Futuristic Sneakers" class="w-full h-64 object-cover transition duration-300 group-hover:blur-sm" />
+          <div class="p-3 text-center">
+            <p class="text-lg font-semibold">$55,000</p>
             <button class="mt-2 bg-sky-500 text-white px-4 py-1 rounded hover:bg-sky-600 transition">Add to Cart</button>
           </div>
         </div>
-        <div class="relative group overflow-hidden rounded-lg shadow-md">
-          <img src="./img/shoe1.jpeg" alt="Shoe 1" class="w-full h-64 object-cover transition duration-300 group-hover:blur-sm">
-          
-          
-          <!-- <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-300">
-            <p class="text-white text-xl font-semibold">Pick Me</p>
-          </div> -->
-        
-          
-          <div class="bg-white p-3 text-center">
-            <p class="text-lg font-semibold text-gray-800">₦12,500</p>
+
+        <div class="group relative overflow-hidden rounded-lg shadow-md bg-white">
+          <img src="./img/shoe8.jpeg" alt="Premium Sneaker" class="w-full h-64 object-cover transition duration-300 group-hover:blur-sm" />
+          <div class="p-3 text-center">
+            <p class="text-lg font-semibold">$52,500</p>
             <button class="mt-2 bg-sky-500 text-white px-4 py-1 rounded hover:bg-sky-600 transition">Add to Cart</button>
           </div>
         </div>
-        <div class="relative group overflow-hidden rounded-lg shadow-md">
-          <img src="./img/shoe1.jpeg" alt="Shoe 1" class="w-full h-64 object-cover transition duration-300 group-hover:blur-sm">
-          
-          
-          <!-- <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-300">
-            <p class="text-white text-xl font-semibold">Pick Me</p>
-          </div> -->
-        
-        
-          <div class="bg-white p-3 text-center">
-            <p class="text-lg font-semibold text-gray-800">₦12,500</p>
+
+        <div class="group relative overflow-hidden rounded-lg shadow-md bg-white">
+          <img src="./img/shoe5.jpeg" alt="Stylish Sneaker" class="w-full h-64 object-cover transition duration-300 group-hover:blur-sm" />
+          <div class="p-3 text-center">
+            <p class="text-lg font-semibold">$22,500</p>
             <button class="mt-2 bg-sky-500 text-white px-4 py-1 rounded hover:bg-sky-600 transition">Add to Cart</button>
           </div>
         </div>
-        <div class="relative group overflow-hidden rounded-lg shadow-md">
-          <img src="./img/shoe1.jpeg" alt="Shoe 1" class="w-full h-64 object-cover transition duration-300 group-hover:blur-sm">
-          
-          
-          <!-- <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-300">
-            <p class="text-white text-xl font-semibold">Pick Me</p>
-          </div> -->
-        
-        
-          <div class="bg-white p-3 text-center">
-            <p class="text-lg font-semibold text-gray-800">₦12,500</p>
+
+        <div class="group relative overflow-hidden rounded-lg shadow-md bg-white">
+          <img src="./img/shoe6.jpeg" alt="Budget Friendly Shoe" class="w-full h-64 object-cover transition duration-300 group-hover:blur-sm" />
+          <div class="p-3 text-center">
+            <p class="text-lg font-semibold">$500</p>
             <button class="mt-2 bg-sky-500 text-white px-4 py-1 rounded hover:bg-sky-600 transition">Add to Cart</button>
           </div>
         </div>
+
       </div>
     </section>
-
-    <section id="about" class="bg-white py-10 px-5">
-      <h2 class="text-2xl font-semibold text-center mb-4">About Us</h2>
-      <p class="max-w-xl mx-auto text-center">
-        Stoes is built on passion and purpose—where every stitch tells a story of craftsmanship, creativity, and care. We blend art and function to create beautifully handmade footwear for women who value both timeless style and all-day comfort
+    <section id="about" class="bg-sky-50 py-16 px-6">
+      <h2 class="text-3xl font-bold text-sky-800 text-center mb-6">About Us</h2>
+      <p class="max-w-2xl mx-auto text-center text-gray-700 text-lg leading-relaxed">
+        Stoes is built on passion and purpose—where every stitch tells a story of craftsmanship, creativity, and care. We blend art and function to create beautifully handmade footwear for women who value both timeless style and all-day comfort.
       </p>
     </section>
-
-    <section id="contact" class="bg-sky-200 py-10 px-5">
-      <h2 class="text-2xl font-semibold text-center mb-4">Get in Touch</h2>
-      <form
-        class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md space-y-4"
-      >
+    
+    <section id="contact" class="bg-white py-16 px-6">
+      <h2 class="text-3xl font-bold text-sky-800 text-center mb-6">Get in Touch</h2>
+      <form class="max-w-xl mx-auto bg-sky-50 p-8 rounded-xl shadow-lg space-y-5">
         <input
           type="text"
           placeholder="Your Name"
-          class="w-full p-2 border border-gray-300 rounded"
+          class="w-full p-3 border border-sky-200 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-400"
         />
         <input
           type="email"
           placeholder="Your Email"
-          class="w-full p-2 border border-gray-300 rounded"
+          class="w-full p-3 border border-sky-200 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-400"
         />
         <textarea
           placeholder="Your Message"
-          class="w-full p-2 border border-gray-300 rounded h-32"
+          class="w-full p-3 border border-sky-200 rounded-md h-32 focus:outline-none focus:ring-2 focus:ring-sky-400"
         ></textarea>
         <button
           type="submit"
-          class="bg-sky-400 text-white px-4 py-2 rounded hover:bg-sky-500"
+          class="w-full bg-sky-600 text-white font-semibold py-3 rounded-md hover:bg-sky-700 transition"
         >
-          Send
+          Send Message
         </button>
       </form>
     </section>
-
-    <footer class="text-center text-sm text-gray-600 py-4">
+    
+    <footer class="bg-sky-800 text-white text-center text-sm py-6">
       &copy; 2025 Stoes Collection. All rights reserved.
     </footer>
+    <script src="/app.js"></script>
   </body>
 </html>
